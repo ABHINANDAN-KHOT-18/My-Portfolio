@@ -6,12 +6,12 @@ export default function HeroOverlay({ started }: { started: boolean }) {
   if (!started) return null;
 
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-end p-8 md:p-16">
+    <div className="w-full h-full flex flex-col justify-center p-8 md:p-12 lg:p-16">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="max-w-2xl pointer-events-auto"
+        className="max-w-xl pointer-events-auto bg-black/40 p-8 rounded-2xl backdrop-blur-sm border border-white/10"
       >
         <p className="text-cyan-400 font-mono tracking-widest mb-2 text-sm">HELLO, I'M</p>
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">ABHINANDAN KHOT</h1>
