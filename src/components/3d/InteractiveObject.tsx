@@ -33,18 +33,15 @@ export default function InteractiveObject({
 
   useCursor(hovered);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (meshRef.current) {
-      // Gentle floating animation
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 2 + position[0]) * 0.05;
-      
       // Interpolate color
       const targetColor = new THREE.Color(hovered ? hoverColor : color);
       (meshRef.current.material as THREE.MeshStandardMaterial).color.lerp(targetColor, 0.1);
       
-      // Interpolate scale for hover effect
-      const targetScale = hovered ? 1.05 : 1;
-      meshRef.current.scale.lerp(new THREE.Vector3(scale[0] * targetScale, scale[1] * targetScale, scale[2] * targetScale), 0.1);
+      // Interpolate scale for hover effect (subtle)
+      const targetScale = hovered ? 1.02 : 1;
+      meshRef.current.scale.lerp(new THREE.Vector3(scale[0] * targetScale, scale[1] * targetScale, scale[2] * targetScale), 0.15);
     }
   });
 

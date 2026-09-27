@@ -35,10 +35,9 @@ export default function Home() {
     <main className="flex flex-col md:flex-row w-full min-h-screen bg-[#030303] overflow-x-hidden">
       {!loaded && <LoadingScreen onLoaded={() => setLoaded(true)} />}
       
-      {/* HTML Overlay (Left on desktop, Top on mobile) */}
       <div className="w-full md:w-1/2 min-h-screen z-20 flex items-center justify-center relative pointer-events-none">
         <div className="pointer-events-auto w-full flex justify-center">
-          <HeroOverlay started={loaded} />
+          <HeroOverlay started={loaded} onInteract={setActiveModal} />
         </div>
       </div>
 
